@@ -36,7 +36,7 @@ class LEDPanels():
         if type(command) == str:
             self.serial_command_log.write('{}: {}\n'.format(self.serial_command_cnt, command))
         else:
-            t = time.time() - self.serial_time_start
+            t = time.time() - self.serial_time.start
             write_list = [
                     self.serial_command_cnt, 
                     t, 
@@ -466,7 +466,7 @@ class LEDPanels():
                 self.serial_write(serialbytes_list, panelcommand)
                 #self.serial.write(''.join(serialbytes_list))
 ###???
-                time.sleep(0.05)
+                #time.sleep(0.01)
             except serial.SerialException, e:
                 rospy.logwarn('ledpanels: Serial exception, trying to reopen: %s' % e)
                 if self.serial.isOpen():

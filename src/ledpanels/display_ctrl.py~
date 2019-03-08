@@ -18,7 +18,7 @@ class LedControler(object):
 
     def publish(self,msg):
         self.pub.publish(msg)
-        rospy.sleep(0.009)#0.005
+        rospy.sleep(0.005)
 
     def clear_args(self):
         self.msg.arg1 = 0;self.msg.arg2 = 0;self.msg.arg3 = 0
